@@ -13,7 +13,7 @@ def encode(message, key):
         if (alpha.find(letter) >= 0): #check to see if the letter is actually a letter
             spot = (alpha.find(letter) + key) % 26
             secret = secret + alpha[spot]
-        else: # letter must have been a number, symbol, or punctuation.
+        else: # letter must have been a number, symbol, or punctuation. vef
             secret = secret + letter
 
     return secret
