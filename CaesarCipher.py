@@ -5,6 +5,7 @@
 #To run the code, run the main() function
 
 def encode(message, key):
+    key=-key
     alpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
     message = message.upper()
     secret = ""
@@ -18,8 +19,11 @@ def encode(message, key):
 
     return secret
 
-#def decode(message, key):
-    #We will want to decode the message here.
+
+def decode(message,key):
+     plaintext=encode(message,-key)
+     return plaintext
+
 
 def main():
     message = input("Enter a message: ")

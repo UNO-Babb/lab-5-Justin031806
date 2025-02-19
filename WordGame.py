@@ -14,7 +14,7 @@ def inWord(letter, word):
 
 def inspot(letter,word,spot):
      correctLetter=word[spot]
-     if letter==correctLetter:
+     if word[spot]==letter:
       return True
      else:
         return False
@@ -25,13 +25,13 @@ def rateGuess(myGuess, word):
     - Lower case letter if the letter is in the word but in the wrong spot
     - * if the letter is not in the word at all"""
     feedback=""
-
     for spot in range(5):
-     myLetter = myGuess[spot]
-     if inspot(myLetter,word,spot)==True:
-        feedback=feedback+myLetter.upper()
-     elif inWord(myLetter,word)==True:
-        feedback=feedback+myLetter.lower()
+     
+     Letter = myGuess[spot]
+     if inspot(Letter,word,spot)==True:
+        feedback=feedback+Letter.upper()
+     elif inWord(Letter,word):
+        feedback=feedback+Letter.lower()
      else:
           feedback=feedback+"*"
 
@@ -46,29 +46,26 @@ def main():
     print(todayWord)
 
     #User should get 6 guesses to guess
-
+    guess=input("Enter a word:")
+    feedback=rateGuess(guess,todayWord)
+    print(feedback)
     #Ask user for their guess
     ValidWord=False
     while ValidWord==False:
        
      guessNum=1
-    while guessNum<=6:
-     guess=input("Enter guess:")
-     guess=guess.lower()
-     if guess not in wordList:
-        print("Word not in list.")
-        validword=False
-    else:
-         validWord=True
-    feedback=rateGuess(guess,todayWord)
-    print(feedback)
-    if feedback == todayWord.upper():
-       print("You got it",guessNum,"tries!")
-       
-    guessNum=guessNum+1
-    #Give feedback using on their word:
-    print("The word was",todayWord)
-    print("bye")
+     feedback=""
+    while guessNum<6 and feedback!=todayWord.upper():
+     guess=input("Enter word:")
+     feedback=rateGuess(guess,todayWord)
+     print(feedback)
+     guessNum=guessNum+1
+     if feedback==todayWord.upper():
+        print("congratulations-you got it")
+     else:
+        print("Sorry,the word was"+todayWord)
+     
+      
 
 
 

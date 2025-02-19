@@ -15,6 +15,10 @@ def countLetters(message):
     freq = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
 
     #loop through each letter
+    for letter in message:
+        spot=alpha.find(letter)
+        if spot==-1:
+            freq[spot]=freq[spot]+1
     #Find the position in the alphabet
     #Increase the frequency at that position. If position was 5, then frequencies[5] = frequencies[5] + 1
 
